@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SALARY CALCULATOR</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <form>
+            <input type="text" placeholder="Employee Name" name="EmpName"><br>
+            <input type="text" placeholder="Pegged Salary" name="peggedSalary"><br>
+            <input type="text" placeholder="Days Absent" name="DaysAbsent"><br>
+            <input type="text" placeholder="Total shortfalls" id="shortfalls"><br>
+            <input type="text" placeholder="Months" id="months"><br>
+            <input type="text" placeholder="Bonus" id="Bonus"><br>
+            <input type="button" value="COMPUTE" onclick="calculateSalary(EmpName.value,parseFloat(peggedSalary.value),parseFloat(DaysAbsent.value),parseFloat(shortfalls.value),parseFloat(Bonus.value),parseFloat(months.value));">
+            <input type="button" value="NEXT">
+            <label id="display">$0.00</label>
+        </form>
+    </div>
+    <script>
+        function calculateSalary(employeeName,peggedSalary,absent,shortfalls,bonus,months){
+            var netMonths = months*31;
+            var workedDays = netMonths -absent;
+            var totSalary = (workedDays/netMonths)*peggedSalary;//working well
+            var Salary = (totSalary-shortfalls);//working well
+            var netSalary = parseFloat(Salary+bonus);
+            document.getElementById('display').innerHTML ='$'+parseFloat(netSalary);//tested and working
+        }
+    </script>
+</body>
+</html>

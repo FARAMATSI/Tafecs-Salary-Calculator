@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <button onclick="fun();">MyButton</button>
+</head>
+<body>
+    <script>
+        function fun(){
+            for(let count =1; count<=20; count++){
+                if(count % 3== 0 && count % 5 == 0){
+                    console.log("FizzBuz \n");
+                }
+                else if(count % 3==0){
+                    console.log("Fizz \n");
+                }
+                else if(count % 5 == 0){
+                    console.log("Buzz \n");
+                }
+                else{
+                    console.log(count +"\n")
+                }
+            }
+        }
+    </script>
+</body>
+</html>
